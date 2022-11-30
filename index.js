@@ -1,11 +1,19 @@
-import { SPAInteraction as SPAInteraction_import } from './SPAInteraction.js'; 
-import { Director as Director_import } from './director.js'; 
-import { EventElement as EventElement_import } from './eventElement.js'; 
-import { UKMOnePage as UKMOnePage_import } from './UKMOnePage.js'; 
+const SPAInteraction = require('./SPAInteraction.js'); 
+const Director = require('./director.js'); 
+const EventElement = require('./eventElement.js'); 
+const UKMOnePage = require('./UKMOnePage.js'); 
 
+module.exports = {
+    SPAInteraction, 
+    Director,
+    EventElement,
+    UKMOnePage
+};
 
-// Exporting
-export var SPAInteraction = SPAInteraction_import;
-export var Director = Director_import;
-export var EventElement = EventElement_import;
-export var UKMOnePage = UKMOnePage_import;
+/*
+// Hvordan henter man exports? Se under...
+const SPAInteraction = require('ukm-spa').SPAInteraction;
+const Director = require('ukm-spa').Director;
+const EventElement = require('ukm-spa').EventElement;
+const UKMOnePage = require('ukm-spa').UKMOnePage;
+*/

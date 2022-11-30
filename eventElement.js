@@ -1,4 +1,4 @@
-export var EventElement = class {
+var EventElement = class {
     
     /**
      * Represents a element in the DOM.
@@ -53,3 +53,7 @@ export var EventElement = class {
         });
     }
 }
+
+module.exports = {
+    EventElement
+};

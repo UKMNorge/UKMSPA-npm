@@ -1,4 +1,4 @@
-export var SPAInteraction = class {
+var SPAInteraction = class {
 
     /**
      * Represents the UKMOnePage functionality.
@@ -100,4 +100,10 @@ export var SPAInteraction = class {
             });
         });
     }
+}
+
+
+
+module.exports = {
+    SPAInteraction
 }

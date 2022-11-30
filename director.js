@@ -1,4 +1,4 @@
-export var Director = class {
+var Director = class {
 
     constructor() {
         this._onHistoryChangeState();
@@ -167,3 +167,7 @@ export var Director = class {
     }
 
 }
+
+module.exports = {
+    Director
+};

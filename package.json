@@ -1,7 +1,6 @@
 {
-  "type": "module",
   "name": "ukm-spa",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Client library used by UKM. Includes interaction, ajax, routing, navigation functions, dialogs...",
   "main": "index.js",
   "directories": {

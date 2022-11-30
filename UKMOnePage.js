@@ -1,8 +1,8 @@
-import { SPAInteraction } from './SPAInteraction.js'; 
+const SPAInteraction = require('./SPAInteraction.js'); 
 
 
 /* Abstract class */
-export var UKMOnePage = class {
+var UKMOnePage = class {
 
     /**
      * Represents the UKMOnePage functionality.
@@ -68,4 +68,9 @@ export var UKMOnePage = class {
             ev.initEvent();
         }
     }
+}
+
+
+module.exports = {
+    UKMOnePage
 }
