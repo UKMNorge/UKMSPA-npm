@@ -55,6 +55,15 @@ var SPAInteraction = class {
         }
     }
     
+    isJson(res) {
+        try {
+            JSON.parse(res);
+        }catch(e) {
+            return false;
+        }
+        return true;
+    }
+    
     // Server communication
     async runAjaxCall(url, method, data, event = null) {
         var getData = [];    
@@ -81,7 +90,12 @@ var SPAInteraction = class {
                 data: method == 'GET' ? {} : data,
                 success: (res) => {
                     this.$(button).find('.spinner-border').detach();
-                    resolve(res);
+                    if(this.isJson(res)) {
+                        resolve(JSON.parse(res));   
+                    }
+                    else {                    
+                        resolve(res);
+                    }
                 }
             }).fail((res) => {
                 // The call has returned an error, remove the spinner
