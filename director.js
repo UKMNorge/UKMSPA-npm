@@ -1,6 +1,10 @@
 var Director = class {
 
     constructor() {
+        if(!window.$) {
+            window.$ = jQuery;
+        }
+
         this._onHistoryChangeState();
         this.eventlisteners = [];
 
@@ -53,7 +57,7 @@ var Director = class {
             var urlParams = new URLSearchParams(window.location.search);
             
             urlParams.forEach((value, key) => {
-                if(key != 'page') {
+                if(key != 'pageSPA') {
                     url = url + ('&' + key + '=' + value);
                 }
             });
@@ -74,7 +78,7 @@ var Director = class {
     
     _openPageTriggerEvent(obj) {
         var obj = {
-            id: this.getParam('page'),
+            id: this.getParam('pageSPA'),
         }
 
         if(this.eventlisteners['openPage']) {
@@ -121,7 +125,7 @@ var Director = class {
     _addToUrl(pageId, otherParams = '') {
         var state = { 'page_id': pageId, 'user_id': 5 };
         var title = '';
-        var url = '?page=' + pageId + otherParams;        
+        var url = '?pageSPA=' + pageId + otherParams;        
 
         this._pushStateToHistory(state, title, url)
     }
@@ -144,7 +148,7 @@ var Director = class {
     _getPageFromUrl() {
         let urlSearchParams = new URLSearchParams(window.location.search);
         let params = Object.fromEntries(urlSearchParams.entries());
-        return params['page'];
+        return params['pageSPA'];
     }
 
 
