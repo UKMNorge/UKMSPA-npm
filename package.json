@@ -1,5 +1,5 @@
 {
-  "name": "ukm-spa",
+  "name": "@ukmnorge/ukm-spa",
   "version": "1.0.9",
   "description": "Client library used by UKM. Includes interaction, ajax, routing, navigation functions, dialogs...",
   "main": "index.js",
