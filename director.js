@@ -1,6 +1,8 @@
 var Director = class {
 
-    constructor() {
+    constructor(containerId = null) {
+        this.containerId = containerId ? containerId : '.main-container';
+
         if(!window.$) {
             window.$ = jQuery;
         }
@@ -17,7 +19,7 @@ var Director = class {
                 page = pageFromUrl;
             }
             else {
-                page = $($('.main-container.page')[0]).attr('id');
+                page = $($(this.containerId + ' .page')[0]).attr('id');
             }
 
             if(page) {
@@ -34,22 +36,22 @@ var Director = class {
      * @param {boolean} scrollTop - scroll to the top of the page
      * 
      */
-    openPage(id, state=true, scrollTop=false) {
-        $('.main-container.page').css('margin-top', '-38px').addClass('hide');
+    openPage(id, state=true, scrollTop=false, animation=false) {
+        $(this.containerId + ' .page').css('display', 'none');
         
-        var page = $('.main-container.page#' + id);
+        var page = $(this.containerId + ' .page#' + id);
 
-        page.css('opacity', '.9').removeClass('hide').animate({
-            'margin-top': '-44px',
-            'margin-bottom': '+=10px',
-            'opacity' : '1'
-        }, 500, function() {
-            
-        });
+        page.css('display', 'inline');
 
-        // Add attributes to header
-        $('#headerMainText').html(page.attr('header-main-text'));
-        $('#headerUnderText').html(page.attr('header-under-text'));
+        if(animation) {
+            page.css('opacity', '.9').removeClass('hide').animate({
+                'margin-top': animation ? '-44px' : '0',
+                'margin-bottom': '+=10px',
+                'opacity' : '1'
+            }, 500, function() {
+                
+            });
+        }
 
         if(state) {
             // Add current arguments
