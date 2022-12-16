@@ -25,10 +25,11 @@ deltaOnePage.addEventElements([
 Director klasse brukes for å navigere gjennom sider som er definert i DOM som sider for å oppnå SPA metodologien.
 
 ```html
-<div id="pageTestHello">
+<div id="pageTestHello" class="page" alone="true">
 	<h1>Page content here...</h1>
 </div>
 ```
+HUSK: DOM elementet må ha class `page`. Hvis siden kan leve alene, da må attributen alone settes til `true`. Det betyr at siden er ikke avhengig av andre sider. Eks. en side som kan kalles gjennom url og som vises uavhengig av andre sider.
 
 ```js
 Director.openPage("pageTestHello");
